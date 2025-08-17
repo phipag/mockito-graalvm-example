@@ -33,6 +33,12 @@
     "interfaces":["net.bytebuddy.description.type.TypeDescription$Generic$AnnotationReader$ForComponentType$AnnotatedParameterizedType"]
   },
   {
+    "interfaces":["net.bytebuddy.dynamic.loading.ClassInjector$UsingLookup$MethodHandles"]
+  },
+  {
+    "interfaces":["net.bytebuddy.dynamic.loading.ClassInjector$UsingLookup$MethodHandles$Lookup"]
+  },
+  {
     "interfaces":["net.bytebuddy.utility.JavaModule$Module"]
   },
   {
