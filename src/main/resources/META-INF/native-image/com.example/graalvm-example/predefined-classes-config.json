@@ -2,10 +2,10 @@
   {
     "type":"agent-extracted",
     "classes":[
-      { "nameInfo":"org/mockito/codegen/MessageClass$MockitoMock$2htoda0op99200N", "hash":"259be28caa08cef8b086b451d92e2583fba5d0eb36f3e494ea1fac8f6176c1c3" },
-      { "nameInfo":"org/mockito/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$ql60om3S", "hash":"85557cb7366c71cc59214fd920c704da29dacfe1bc2e01487939d51e5c44edba" },
-      { "nameInfo":"org/mockito/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$4cscpe1S", "hash":"f644c5b995e143ba4a2830c7cf271c61306635766ada40e797493fed23f2ea64" },
-      { "nameInfo":"org/mockito/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$7m9oaq0S", "hash":"35114fc588fbc11a244f2649519e52fc0afbca21273fa9af21fbd7158147e1cc" },
+      { "nameInfo":"org/mockito/internal/creation/bytebuddy/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$4cscpe1S", "hash":"0254746e8c980e798f88d8d1bad1b83938af7f579afab6b55220a8baffac84ab" },
+      { "nameInfo":"org/mockito/internal/creation/bytebuddy/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$7m9oaq0S", "hash":"966ae13e45437d2a997c988769b2649fd60fdbd4a4cd197f138074f0bad2b059" },
+      { "nameInfo":"org/mockito/internal/creation/bytebuddy/codegen/MessageClass$MockitoMock$2htoda0op99200N", "hash":"067d700caa3692d96f35a77077c337beb2c06308bf45e8a30a40ba83c58592b0" },
+      { "nameInfo":"org/mockito/internal/creation/bytebuddy/codegen/MessageClass$MockitoMock$2htoda0op99200N$auxiliary$ql60om3S", "hash":"14e2a45f00f3e143789f7294f0fbf4abaa884585ba54ac4d9f18f127063d9fbd" },
       { "nameInfo":"net/bytebuddy/utility/Invoker$Dispatcher", "hash":"b4371c0b5187b914976c7db687153600bcd974e028cbe432ed804c9b9f84776a" }
     ]
   }

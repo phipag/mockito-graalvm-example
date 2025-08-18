@@ -24,7 +24,7 @@
 },
 {
   "name":"java.lang.Class",
-  "methods":[{"name":"forName","parameterTypes":["java.lang.String"] }, {"name":"getAnnotatedInterfaces","parameterTypes":[] }, {"name":"getAnnotatedSuperclass","parameterTypes":[] }, {"name":"getDeclaredMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getModule","parameterTypes":[] }, {"name":"getNestHost","parameterTypes":[] }, {"name":"getNestMembers","parameterTypes":[] }, {"name":"getPermittedSubclasses","parameterTypes":[] }, {"name":"getRecordComponents","parameterTypes":[] }, {"name":"isNestmateOf","parameterTypes":["java.lang.Class"] }, {"name":"isRecord","parameterTypes":[] }, {"name":"isSealed","parameterTypes":[] }]
+  "methods":[{"name":"getAnnotatedInterfaces","parameterTypes":[] }, {"name":"getAnnotatedSuperclass","parameterTypes":[] }, {"name":"getDeclaredMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getMethod","parameterTypes":["java.lang.String","java.lang.Class[]"] }, {"name":"getModule","parameterTypes":[] }, {"name":"getNestHost","parameterTypes":[] }, {"name":"getNestMembers","parameterTypes":[] }, {"name":"getPackageName","parameterTypes":[] }, {"name":"getPermittedSubclasses","parameterTypes":[] }, {"name":"getRecordComponents","parameterTypes":[] }, {"name":"isNestmateOf","parameterTypes":["java.lang.Class"] }, {"name":"isRecord","parameterTypes":[] }, {"name":"isSealed","parameterTypes":[] }]
 },
 {
   "name":"java.lang.ClassLoader",
@@ -32,7 +32,7 @@
 },
 {
   "name":"java.lang.Module",
-  "methods":[{"name":"addExports","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"addReads","parameterTypes":["java.lang.Module"] }, {"name":"canRead","parameterTypes":["java.lang.Module"] }, {"name":"getClassLoader","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPackages","parameterTypes":[] }, {"name":"getResourceAsStream","parameterTypes":["java.lang.String"] }, {"name":"isExported","parameterTypes":["java.lang.String"] }, {"name":"isExported","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"isNamed","parameterTypes":[] }, {"name":"isOpen","parameterTypes":["java.lang.String","java.lang.Module"] }]
+  "methods":[{"name":"addExports","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"addOpens","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"addReads","parameterTypes":["java.lang.Module"] }, {"name":"canRead","parameterTypes":["java.lang.Module"] }, {"name":"getClassLoader","parameterTypes":[] }, {"name":"getName","parameterTypes":[] }, {"name":"getPackages","parameterTypes":[] }, {"name":"getResourceAsStream","parameterTypes":["java.lang.String"] }, {"name":"isExported","parameterTypes":["java.lang.String"] }, {"name":"isExported","parameterTypes":["java.lang.String","java.lang.Module"] }, {"name":"isNamed","parameterTypes":[] }, {"name":"isOpen","parameterTypes":["java.lang.String","java.lang.Module"] }]
 },
 {
   "name":"java.lang.Object",
@@ -75,7 +75,7 @@
 },
 {
   "name":"java.lang.invoke.MethodHandles",
-  "methods":[{"name":"lookup","parameterTypes":[] }]
+  "methods":[{"name":"lookup","parameterTypes":[] }, {"name":"privateLookupIn","parameterTypes":["java.lang.Class","java.lang.invoke.MethodHandles$Lookup"] }]
 },
 {
   "name":"java.lang.invoke.MethodHandles$Lookup",
@@ -186,7 +186,7 @@
   "name":"net.bytebuddy.implementation.bind.annotation.AllArguments",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"includeSelf","parameterTypes":[] }, {"name":"nullIfEmpty","parameterTypes":[] }]
+  "methods":[{"name":"includeSelf","parameterTypes":[] }, {"name":"nullIfEmpty","parameterTypes":[] }, {"name":"value","parameterTypes":[] }]
 },
 {
   "name":"net.bytebuddy.implementation.bind.annotation.Argument",
@@ -229,6 +229,11 @@
   "queryAllDeclaredConstructors":true
 },
 {
+  "name":"net.bytebuddy.implementation.bind.annotation.DynamicConstant",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
   "name":"net.bytebuddy.implementation.bind.annotation.FieldGetterHandle",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
@@ -245,10 +250,20 @@
   "methods":[{"name":"declaringType","parameterTypes":[] }, {"name":"value","parameterTypes":[] }]
 },
 {
+  "name":"net.bytebuddy.implementation.bind.annotation.Handle",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
+},
+{
   "name":"net.bytebuddy.implementation.bind.annotation.Origin",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
   "methods":[{"name":"cache","parameterTypes":[] }, {"name":"privileged","parameterTypes":[] }]
+},
+{
+  "name":"net.bytebuddy.implementation.bind.annotation.StubValue",
+  "queryAllDeclaredMethods":true,
+  "queryAllDeclaredConstructors":true
 },
 {
   "name":"net.bytebuddy.implementation.bind.annotation.Super",
@@ -259,7 +274,7 @@
   "name":"net.bytebuddy.implementation.bind.annotation.SuperCall",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"fallbackToDefault","parameterTypes":[] }, {"name":"serializableProxy","parameterTypes":[] }]
+  "methods":[{"name":"fallbackToDefault","parameterTypes":[] }, {"name":"nullIfImpossible","parameterTypes":[] }, {"name":"serializableProxy","parameterTypes":[] }]
 },
 {
   "name":"net.bytebuddy.implementation.bind.annotation.SuperCallHandle",
@@ -279,7 +294,8 @@
 {
   "name":"net.bytebuddy.implementation.bind.annotation.This",
   "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true
+  "queryAllDeclaredConstructors":true,
+  "methods":[{"name":"optional","parameterTypes":[] }]
 },
 {
   "name":"net.bytebuddy.utility.Invoker",
@@ -333,18 +349,6 @@
   "queryAllPublicMethods":true
 },
 {
-  "name":"org.mockito.codegen.MessageClass$MockitoMock$2htoda0op99200N"
-},
-{
-  "name":"org.mockito.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$4cscpe1S"
-},
-{
-  "name":"org.mockito.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$7m9oaq0S"
-},
-{
-  "name":"org.mockito.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$ql60om3S"
-},
-{
   "name":"org.mockito.configuration.MockitoConfiguration"
 },
 {
@@ -368,29 +372,41 @@
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
-  "name":"org.mockito.internal.creation.bytebuddy.MockAccess",
+  "name":"org.mockito.internal.creation.bytebuddy.access.MockAccess",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
 },
 {
-  "name":"org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$DispatcherDefaultingToRealMethod",
+  "name":"org.mockito.internal.creation.bytebuddy.access.MockMethodInterceptor$DispatcherDefaultingToRealMethod",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
 },
 {
-  "name":"org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$ForEquals",
+  "name":"org.mockito.internal.creation.bytebuddy.access.MockMethodInterceptor$ForEquals",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
 },
 {
-  "name":"org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$ForHashCode",
+  "name":"org.mockito.internal.creation.bytebuddy.access.MockMethodInterceptor$ForHashCode",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
 },
 {
-  "name":"org.mockito.internal.creation.bytebuddy.MockMethodInterceptor$ForWriteReplace",
+  "name":"org.mockito.internal.creation.bytebuddy.access.MockMethodInterceptor$ForWriteReplace",
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true
+},
+{
+  "name":"org.mockito.internal.creation.bytebuddy.codegen.MessageClass$MockitoMock$2htoda0op99200N"
+},
+{
+  "name":"org.mockito.internal.creation.bytebuddy.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$4cscpe1S"
+},
+{
+  "name":"org.mockito.internal.creation.bytebuddy.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$7m9oaq0S"
+},
+{
+  "name":"org.mockito.internal.creation.bytebuddy.codegen.MessageClass$MockitoMock$2htoda0op99200N$auxiliary$ql60om3S"
 },
 {
   "name":"org.mockito.internal.creation.instance.DefaultInstantiatorProvider",
